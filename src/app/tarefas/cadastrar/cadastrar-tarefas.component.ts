@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
+import { TarefaService, Tarefa } from '../shared';
 
 @Component({
-  selector: 'app-cadastrar-tarefas',
+  selector: 'app-cadastrar-tarefa',
   templateUrl: './cadastrar-tarefas.component.html',
   styleUrls: ['./cadastrar-tarefas.component.css']
 })
-export class CadastrarTarefasComponent implements OnInit {
+export class CadastrarTarefaComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('formTarefa', {static: true}) formTarefa: NgForm;
+  tarefa: Tarefa;
 
-  ngOnInit(): void {
+  constructor(
+    private tarefaService: TarefaService,
+  	private router: Router) { }
+
+  ngOnInit() {
+  	this.tarefa = new Tarefa();
+  }
+
+  cadastrar(): void {
+    if (this.formTarefa.form.valid) {
+  	  this.tarefaService.cadastrar(this.tarefa);
+  	  this.router.navigate(["/tarefas"]);
+    }
   }
 
 }
