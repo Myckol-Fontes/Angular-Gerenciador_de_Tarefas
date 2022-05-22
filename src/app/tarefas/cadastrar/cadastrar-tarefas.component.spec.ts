@@ -1,25 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastrarTarefasComponent } from './cadastrar-tarefas.component';
+import { CadastrarTarefaComponent } from './cadastrar-tarefas.component';
 
-describe('CadastrarTarefasComponent', () => {
-  let component: CadastrarTarefasComponent;
-  let fixture: ComponentFixture<CadastrarTarefasComponent>;
+describe('CadastrarTarefaComponent', () => {
+  let component: CadastrarTarefaComponent;
+  let fixture: ComponentFixture<CadastrarTarefaComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CadastrarTarefasComponent ]
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CadastrarTarefaComponent ]
     })
     .compileComponents();
-  });
+  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CadastrarTarefasComponent);
+    /*fixture = TestBed.createComponent(CadastrarTarefaComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.detectChanges();*/
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
